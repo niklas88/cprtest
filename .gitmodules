@@ -1,0 +1,4 @@
+[submodule "vendor/cpr"]
+	path = vendor/cpr
+	url = git@github.com:whoshuu/cpr.git
+	branch = release/1.1
