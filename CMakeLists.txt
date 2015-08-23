@@ -12,7 +12,7 @@
 
 # OBJECT library requires 2.8.8
 cmake_minimum_required(VERSION 2.8.8 FATAL_ERROR)
-project(curltest CXX)
+project(cprtest CXX)
 set( CMAKE_VERBOSE_MAKEFILE on )
 
 set ( CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} vendor/cpr/)
@@ -64,10 +64,10 @@ endif()
 #	src/file_formats.cpp
 #)
 
-add_executable(netlibtest
+add_executable(search
   src/search.cpp
 )
-target_link_libraries(netlibtest ${CMAKE_THREAD_LIBS_INIT}  ${CURL_LIBRARIES} ${CPR_LIBRARIES})
+target_link_libraries(search ${CMAKE_THREAD_LIBS_INIT}  ${CPR_LIBRARIES})
 
 #add_executable(run_tests
 #	src/run_tests.cpp
