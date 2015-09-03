@@ -19,12 +19,12 @@ set ( CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} vendor/cpr/)
 find_package ( CPR REQUIRED )
 include_directories ( ${CPR_INCLUDE_DIRS} )
 
-#FIND_PACKAGE(CURL REQUIRED)
-#IF(CURL_FOUND)
-#  INCLUDE_DIRECTORIES(${CURL_INCLUDE_DIR})
-#ELSE(CURL_FOUND)
-#  MESSAGE(FATAL_ERROR "Could not find the CURL library and development files.")
-#ENDIF(CURL_FOUND)
+FIND_PACKAGE(CURL REQUIRED)
+IF(CURL_FOUND)
+  INCLUDE_DIRECTORIES(${CURL_INCLUDE_DIR})
+ELSE(CURL_FOUND)
+  MESSAGE(FATAL_ERROR "Could not find the CURL library and development files.")
+ENDIF(CURL_FOUND)
 
 enable_testing()
 
@@ -67,7 +67,7 @@ endif()
 add_executable(search
   src/search.cpp
 )
-target_link_libraries(search ${CMAKE_THREAD_LIBS_INIT}  ${CPR_LIBRARIES})
+target_link_libraries(search ${CURL_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT}  ${CPR_LIBRARIES})
 
 #add_executable(run_tests
 #	src/run_tests.cpp
